@@ -1,0 +1,21 @@
+Release 2.94 brings folowing improvements:
+
+- Rewrite of all LMS based learning algorithms in order to better reflect the underlying mathematical model
+- Multi threaded cross-validation
+- Improved Basic Neuron Sample in Neuroph Studio, Jovana Petkovic, University of Belgrade
+- Data set visualization and statistics (display histogram with mean, std, min, max, freq for all columns) Aleksandar Arsenovic, University of Belgrade
+- Support for loading arff files into Neuroph Studio, Aleksandar Arsenovic, University of Belgrade
+- Better JUnit tests (thanks to Tijana Vujacic from University of Belgrade)
+- Benchmarking backpropagation algorithms - Mladen Savic, University of Belgrade
+- Auto MLP Mtrainer - Milan Brkic, University of Belgrade
+- Fixed bugs in image recognition wizard
+- Various other bug fixes
+
+Happy hacking!
+Neuroph Team
+
+
+
+
+
+
