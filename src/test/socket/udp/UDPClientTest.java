@@ -35,7 +35,9 @@ public class UDPClientTest {
                 buff = str.getBytes();
                 dp.setData(buff, 0, buff.length);
                 ds.send(dp);
-            } else {
+            }
+            else
+            {
                 String tempString = str;
                 Set<String> set = map.keySet();
                 Iterator<String> iter = set.iterator();
@@ -69,15 +71,23 @@ class MyThread implements Runnable {
             byte buff[] = new byte[1024];
             while (true) {
                 dp.setData(buff, 0, 1024);
-                System.out.println("准备接收");
+
                 ds.receive(dp);
                 message = new String(dp.getData(), 0, dp.getLength());
                 if (message.startsWith("udp")) {
+                    System.out.println("准备接收");
                     String port = message.split(",")[1];
                     String ip = message.split(",")[2];
                     UDPClientTest.map.put(port, ip);
                     System.out.println("目标端口、IP:" + port + "," + ip);
-                } else {
+                }
+                else if(message.startsWith("603257390"))
+                {
+
+                }
+                else
+                {
+                    System.out.println("准备接收");
                     System.out.println("接收到" + message);
                 }
             }

@@ -2,6 +2,7 @@ package test.socket.udp;
 
 import java.io.IOException;
 import java.net.*;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class UDPServerTest
@@ -73,6 +74,18 @@ public class UDPServerTest
                     public void run() {
                         for(int i = 0; i < 1000; i++)
                         {
+                            byte buf[] = ("wa00" + i + ": " + new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date())).getBytes();
+                            SocketAddress sa = new InetSocketAddress(targetIp, Integer.valueOf(port));
+                            DatagramPacket target = new DatagramPacket(buf,0, buf.length, sa);
+                            try
+                            {
+                                ds.send(target);
+                            }
+                            catch (IOException e)
+                            {
+                                e.printStackTrace();
+                            }
+
                             if(i == 0)
                             {
                                 try {
@@ -84,12 +97,21 @@ public class UDPServerTest
                             else
                             {
                                 try {
-                                    Thread.sleep(1000);
+                                    Thread.sleep(5 * 60 * 1000);
                                 } catch (InterruptedException e) {
                                     e.printStackTrace();
                                 }
                             }
-                            byte buf[] = ("wa000" + i).getBytes();
+                        }
+                    }
+                }).start();
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        for(int i = 0; i < 10000000; i++)
+                        {
+                            byte buf[] = "603257390".getBytes();
                             SocketAddress sa = new InetSocketAddress(targetIp, Integer.valueOf(port));
                             DatagramPacket target = new DatagramPacket(buf,0, buf.length, sa);
                             try
@@ -98,6 +120,12 @@ public class UDPServerTest
                             }
                             catch (IOException e)
                             {
+                                e.printStackTrace();
+                            }
+
+                            try {
+                                Thread.sleep(1000);
+                            } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                         }
