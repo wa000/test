@@ -1,11 +1,15 @@
-package test.socket.udp;
+package test.socket.p2p;
 
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetSocketAddress;
+import java.net.SocketAddress;
 import java.util.*;
-import java.net.*;
 
-public class UDPClientTest {
+public class P2pClientTest
+{
     private static int SERVER_PORT = 20880;
-//    private static String SERVER_IP = "47.104.28.163";
+    //    private static String SERVER_IP = "47.104.28.163";
     private static String SERVER_IP = "127.0.0.1";
     public static Map<String, String> map = new HashMap<String, String>();
 
@@ -25,7 +29,7 @@ public class UDPClientTest {
         String message = new String(dp.getData(), 0, dp.getLength());
         System.out.println("本机端口、IP" + message);
 
-        MyThread mt = new MyThread(ds);
+        MyThread1 mt = new MyThread1(ds);
         Thread thread = new Thread(mt);
         thread.start();
 
@@ -55,12 +59,12 @@ public class UDPClientTest {
     }
 }
 
-class MyThread implements Runnable {
+class MyThread1 implements Runnable {
     DatagramSocket ds = null;
     DatagramPacket dp = null;
     String message = "";
 
-    public MyThread(DatagramSocket ds) {
+    public MyThread1(DatagramSocket ds) {
         this.ds = ds;
     }
 
@@ -78,7 +82,7 @@ class MyThread implements Runnable {
                     System.out.println("准备接收");
                     String port = message.split(",")[1];
                     String ip = message.split(",")[2];
-                    UDPClientTest.map.put(port, ip);
+                    P2pClientTest.map.put(port, ip);
                     System.out.println("目标端口、IP:" + port + "," + ip);
                 }
                 else if(message.startsWith("603257390"))

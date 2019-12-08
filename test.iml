@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="JAVA_MODULE" version="4">
   <component name="EclipseModuleManager">
-    <libelement value="jar://$MODULE_DIR$/../../apache-tomcat-8.0.44/lib/mysql-connector-java-5.1.46.jar!/" />
+    <libelement value="jar://D:/apache-tomcat-8.0.44/lib/mysql-connector-java-5.1.46.jar!/" />
     <libelement value="jar://$MODULE_DIR$/lib/ojdbc8.jar!/" />
     <libelement value="jar://$MODULE_DIR$/lib/neuroph-2.94/neuroph-2.94/neuroph-adapters-2.94-javadoc.jar!/" />
     <libelement value="jar://$MODULE_DIR$/lib/neuroph-2.94/neuroph-2.94/neuroph-adapters-2.94-sources.jar!/" />
@@ -44,7 +44,7 @@
     <orderEntry type="module-library">
       <library name="mysql-connector-java-5.1.46.jar">
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../apache-tomcat-8.0.44/lib/mysql-connector-java-5.1.46.jar!/" />
+          <root url="jar://D:/apache-tomcat-8.0.44/lib/mysql-connector-java-5.1.46.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -293,5 +293,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="ojdbc8" level="project" />
   </component>
 </module>

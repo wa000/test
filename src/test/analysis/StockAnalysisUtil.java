@@ -4,15 +4,8 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
-import java.util.Set;
-
-import com.mysql.jdbc.StringUtils;
 
 /**
  * 股票分析的工具类  v2.0
@@ -237,8 +230,6 @@ public class StockAnalysisUtil
     /**
      * 创建权重比率bean
      * 
-     * @param curentBean
-     * @param beforeBean
      * @return
      */
     private static StockRateWeightBean createRateWeightBean(String name, double beforeNum, double afterNum)
@@ -275,7 +266,7 @@ public class StockAnalysisUtil
             {
                 try
                 {
-                    if(StringUtils.isNullOrEmpty(line))
+                    if(null == line || "".equals(line))
                     {
                         continue;
                     }
