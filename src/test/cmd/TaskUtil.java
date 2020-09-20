@@ -12,15 +12,16 @@ public class TaskUtil {
 
         while (true) {
             try {
-                SimpleDateFormat logForamt = new SimpleDateFormat("yyyyMMdd hh:mm:ss ");
+                SimpleDateFormat logForamt = new SimpleDateFormat("yyyyMMdd HH:mm:ss ");
                 String logDate = logForamt.format(new Date());
-                SimpleDateFormat sdf = new SimpleDateFormat("hhmm");
+                SimpleDateFormat sdf = new SimpleDateFormat("HHmm");
                 String nowDate = sdf.format(new Date());
 
-                if ("0111".equals(nowDate) && count <= 0) {
+                if ("0615".equals(nowDate) && count <= 0) {
                     System.out.println(logDate + "执行脚本");
 
                     String cmd = "cmd /c  cd /d D:\\server && PowerShell -Command \"xcopy D:\\server E:\\server\\ /e /i /y\"";
+//                    String cmd = "cmd /c  cd /d D:\\tmp && PowerShell -Command \"xcopy D:\\tmp E:\\tmp\\ /e /i /y\"";
 //                    String cmd = "cmd /c  cd /d C:\\Users\\Administrator\\Desktop\\frpc && PowerShell -Command \"xcopy C:\\Users\\Administrator\\Desktop\\frpc C:\\Users\\Administrator\\Desktop\\frpc1 /e /i /y\"";
 
                     File file = new File("D:\\");
@@ -31,10 +32,13 @@ public class TaskUtil {
                     count++;
                 }
 
+                logDate = logForamt.format(new Date());
                 if ("2323".equals(nowDate)) {
+                    System.out.println(logDate + "设置为0");
                     count = 0;
                 }
 
+//                System.out.println(logDate + "本次循环结束，nowDate：" + nowDate);
                 Thread.sleep(10 * 1000);
 
             } catch (Exception e) {
